@@ -13,7 +13,7 @@ var (
 )
 
 func Generator(_ *cobra.Command, _ []string) error {
-	fileName := ctx.String("filename")
+	fileName := VarStringFileName
 
 	if len(fileName) == 0 {
 		fileName = "rest.swagger.json"
@@ -23,7 +23,7 @@ func Generator(_ *cobra.Command, _ []string) error {
 	if err != nil {
 		return err
 	}
-	basepath := ctx.String("basepath")
-	host := ctx.String("host")
+	basepath := VarStringBasePath
+	host := VarStringHost
 	return generate.Do(fileName, host, basepath, p)
 }
