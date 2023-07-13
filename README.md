@@ -4,7 +4,12 @@
 goctl的swagger插件
 
 #### 软件架构
-软件架构说明
+
+#### 使用手册
+```shell
+goctl api plugin -p zero-swagger="swagger -filename admin.json" --api admin.api --dir .
+
+```
 
 
 #### 安装教程

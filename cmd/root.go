@@ -3,10 +3,15 @@ package cmd
 import (
 	"fmt"
 	"github.com/logrusorgru/aurora"
-	"os"
-	"strings"
-
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
+	"os"
+	"path/filepath"
+	"runtime"
+	"strings"
+	"text/template"
+	"zero-swagger/tpl"
+	"zero-swagger/variable"
 )
 
 const (
@@ -31,7 +36,19 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	cobra.AddTemplateFuncs(template.FuncMap{
+		"blue":    blue,
+		"green":   green,
+		"rpadx":   rpadx,
+		"rainbow": rainbow,
+	})
+
+	rootCmd.SetUsageTemplate(tpl.UsageTpl)
+	cobra.OnInitialize(initConfig) //初始化配置文件
+
+	rootCmd.Version = fmt.Sprintf("%s %s/%s", variable.BuildVersion, runtime.GOOS, runtime.GOARCH)
+	rootCmd.AddCommand(versionCmd)
+
 }
 
 func supportGoStdFlag(args []string) []string {
@@ -85,4 +102,30 @@ func supportGoStdFlag(args []string) []string {
 // 判断是否是其中2个命令
 func isBuiltin(name string) bool {
 	return name == "version" || name == "help"
+}
+
+var ConfigFile string
+
+// 初始化viper读取常用配置信息
+func initConfig() {
+	if ConfigFile != "" {
+		viper.SetConfigFile(ConfigFile)
+	} else {
+		home, err := os.UserHomeDir()
+		cobra.CheckErr(err)
+		viper.AddConfigPath(filepath.Join(home, variable.ViperConfigFileVariableName))
+
+		viper.SetConfigType(variable.ViperConfigSuffixFileVariableName)
+		viper.SetConfigName(variable.ViperConfigDirVariableName)
+	}
+
+	viper.AutomaticEnv()
+
+	if err := viper.ReadInConfig(); err == nil {
+		fmt.Println(aurora.Green(fmt.Sprintf("读取初始化配置文件成功:%s", viper.ConfigFileUsed())))
+	} else {
+		//没有参数就设置默认参数
+		fmt.Println(aurora.Green(fmt.Sprintf("没有设置配置文件err=%+v直接使用默认值::%s=%+v", err, variable.ViperStyleVariableName, variable.VarStringStyle)))
+		viper.SetDefault(variable.ViperStyleVariableName, variable.VarStringStyle)
+	}
 }
