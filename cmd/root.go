@@ -125,7 +125,7 @@ func initConfig() {
 		fmt.Println(aurora.Green(fmt.Sprintf("读取初始化配置文件成功:%s", viper.ConfigFileUsed())))
 	} else {
 		//没有参数就设置默认参数
-		fmt.Println(aurora.Green(fmt.Sprintf("没有设置配置文件err=%+v直接使用默认值::%s=%+v", err, variable.ViperStyleVariableName, variable.VarStringStyle)))
+		fmt.Println(aurora.Green(fmt.Sprintf("【非报错内容】没有设置配置文件err=%+v直接使用默认值::%s=%+v", err, variable.ViperStyleVariableName, variable.VarStringStyle)))
 		viper.SetDefault(variable.ViperStyleVariableName, variable.VarStringStyle)
 	}
 }
