@@ -1,4 +1,4 @@
-module zero-swagger
+module goctl-plugin-cli
 
 go 1.18
 

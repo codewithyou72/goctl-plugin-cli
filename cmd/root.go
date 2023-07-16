@@ -5,13 +5,13 @@ import (
 	"github.com/logrusorgru/aurora"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"goctl-plugin-cli/tpl"
+	"goctl-plugin-cli/variable"
 	"os"
 	"path/filepath"
 	"runtime"
 	"strings"
 	"text/template"
-	"zero-swagger/tpl"
-	"zero-swagger/variable"
 )
 
 const (
@@ -22,7 +22,7 @@ const (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "zero-swagger",
+	Use:   "git-version",
 	Short: "根据goctl生成swagger",
 	Long:  `根据.api文件生成swagger`,
 }

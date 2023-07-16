@@ -1,6 +1,6 @@
 package main
 
-import "zero-swagger/cmd"
+import "goctl-plugin-cli/cmd"
 
 func main() {
 	cmd.Execute()

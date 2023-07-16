@@ -2,8 +2,8 @@ package cmd
 
 import (
 	"fmt"
+	"goctl-plugin-cli/variable"
 	"runtime"
-	"zero-swagger/variable"
 
 	"github.com/spf13/cobra"
 )

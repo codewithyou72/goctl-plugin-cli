@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"zero-swagger/action"
+	"goctl-plugin-cli/action"
 
 	"github.com/spf13/cobra"
 )
