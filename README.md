@@ -1,7 +1,7 @@
 # zero-swagger
 
 #### 介绍
-goctl的swagger插件
+goctl的goctl api plugin插件开发脚手架，以此提升插件开发的效率。
 
 #### 软件架构
 
@@ -11,6 +11,13 @@ goctl api plugin -p zero-swagger="swagger -filename admin.json" --api admin.api 
 
 ```
 
+#### 安装cobra-cli和创建自己的插件命令
+```shell
+    go install github.com/spf13/cobra-cli@latest
+    cobra-cli init plugin-name --author you_cli_name -l MIT
+    cobra-cli add sub_command_name -a you_name -l MIT
+
+```
 
 #### 安装教程
 

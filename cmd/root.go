@@ -48,6 +48,7 @@ func init() {
 
 	rootCmd.Version = fmt.Sprintf("%s %s/%s", variable.BuildVersion, runtime.GOOS, runtime.GOARCH)
 	rootCmd.AddCommand(versionCmd)
+	rootCmd.AddCommand(PluginCmd)
 
 }
 
