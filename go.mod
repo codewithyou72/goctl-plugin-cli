@@ -1,4 +1,4 @@
-module goctl-plugin-cli
+module github.com/zeromicro/goctl-plugin-cli
 
 go 1.18
 

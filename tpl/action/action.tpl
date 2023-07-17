@@ -3,7 +3,7 @@ package action
 import (
 	"github.com/spf13/cobra"
 	"github.com/zeromicro/go-zero/tools/goctl/plugin"
-	"github.com/zeromicro/goctl-plugin-cli/generate"
+	"goctl-plugin-cli/generate"
 )
 
 var (

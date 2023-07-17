@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"goctl-plugin-cli/action"
+	"github.com/zeromicro/goctl-plugin-cli/action"
 
 	"github.com/spf13/cobra"
 )

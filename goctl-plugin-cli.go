@@ -1,6 +1,6 @@
 package main
 
-import "goctl-plugin-cli/cmd"
+import "github.com/zeromicro/goctl-plugin-cli/cmd"
 
 func main() {
 	cmd.Execute()
