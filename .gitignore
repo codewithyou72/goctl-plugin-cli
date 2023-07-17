@@ -17,4 +17,5 @@
 
 .DS_Store
 .vscode
+.idea
 goctl-plugin-cli*
