@@ -7,6 +7,9 @@ goctl的goctl api plugin插件开发脚手架，以此提升插件开发的效�
 
 #### 使用手册
 ```shell
+
+go run goctl-plugin-cli.go plugin --name="AAA" --path="AAA/aa"
+
 goctl api plugin -p zero-swagger="swagger -filename admin.json" --api admin.api --dir .
 
 ```

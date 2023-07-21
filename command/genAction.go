@@ -16,12 +16,14 @@ func GenAction(arg Arg) error {
 		return err
 	}
 
+	dirAbs = filepath.Join(dirAbs, "action")
+
 	err = pathx.MkdirIfNotExist(dirAbs)
 	if err != nil {
 		return err
 	}
 
-	filename := filepath.Join(dirAbs, "action", "action.go")
+	filename := filepath.Join(dirAbs, "action.go")
 
 	text, err := pathx.LoadTemplate("action", "action.tpl", tpl.ActionTpl)
 	if err != nil {
@@ -38,26 +40,6 @@ func GenAction(arg Arg) error {
 			//"method":                methods,
 			//"upperStartCamelObject": table.Name.ToCamel(),
 			//"lowerStartCamelObject": stringx.From(table.Name.ToCamel()).Untitle(),
-			//"apiFields":             apiString,
-			//"apiFormFields":         apiFormString,
-			////"apiRequestString":      apiRequestString,
-			//"proto3fields":          proto3String,
-			//"itemStr":               itemStr,
-			//"itemStrWithoutUnix":    itemStrWithoutUnix,
-			//"inStr":                 inStr,
-			//"reqStr":                reqStr,
-			//"data":                  table,
-			//"tableComment":          table.TableComment,
-			//"tagType":               Arg.TagType,
-			//"pkgName":               pkgName,
-			//"logic":                 fmt.Sprintf("%sLogic", item.Function),
-			//"function":              item.Function,
-			//"id":                    table.PrimaryKey.Field.Name.ToCamel(),
-			//"serviceModule":         ServiceModule,
-			//"projectPath":           Arg.ProjectPath,
-			//"lowerStartProjectName": Arg.LowerStartProjectName,
-			//"upperStartProjectName": Arg.UpperStartProjectName,
-			//"apiVersion":            Arg.ApiVersion,
 		})
 	if err != nil {
 		return err
