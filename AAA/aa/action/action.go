@@ -1,9 +1,9 @@
 package action
 
 import (
+	"AAA/generate"
 	"github.com/spf13/cobra"
 	"github.com/zeromicro/go-zero/tools/goctl/plugin"
-	"{{.module}}/generate"
 )
 
 var (

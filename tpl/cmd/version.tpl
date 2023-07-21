@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/zeromicro/goctl-plugin-cli/variable"
+	"{{.module}}/variable"
 	"runtime"
 
 	"github.com/spf13/cobra"
